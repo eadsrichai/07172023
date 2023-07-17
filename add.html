@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เพิ่มข้อมูลนักเรียน</title>
+</head>
+<body>
+    <form action="add.php" method="GET">
+        <label>รหัสนักศึกษา :</label>
+        <input type="text" name="id_stu" value="" /><br>
+        <label>คำนำหน้า :</label>
+        <select name="gender">
+            <option value="นาย">นาย</option>
+            <option value="นางสาว">นางสาว</option>
+        </select>
+        <label>ชื่อ :</label>
+        <input type="text" name="fname" value="" />
+        <label>นามสกุล :</label>
+        <input type="text" name="lname" value="" /><br>
+        <label>เบอร์โทร :</label>
+        <input type="text" name="tel" value="" /><br>
+        <label>อีเมล์ :</label>
+        <input type="text" name="email" value="" /><br>
+        <label>รหัสแผนก :</label>
+        <select name="id_dep">
+            <option value="01">ช่างยนต์</option>
+            <option value="02">ช่างกลโรงงาน</option>
+            <option value="08">คอมพิวเตอร์ธุรกิจ</option>
+            <option value="09">เทคโนโลยีสารสนเทศ</option>
+        </select><br>
+        <label>รหัสครูที่ปรึกษา :</label>
+        <select name="id_teach">
+            <option value="001">วุฒิวงศ์ เอียดศรีชาย</option>
+            <option value="002">ลักษมี เขาทอง</option>
+        </select><br>
+        <input type="submit" name="submit" value="บันทึกข้อมูล" /><br>
+    </form>
+</body>
+</html>
