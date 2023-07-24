@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap-5.2.3/css/bootstrap.min.css">
+    <title>บันทึกข้อมูลแผนก</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row row-cols-1 g-3 mt-3 justify-content-center">
+            <form action="adddep.php" method="GET">
+                <div class="col-4 ">
+                    <label for="id_dep">รหัสแผนก :</label>
+                    <input type="text" name="id_dep" id="id_dep" class="form-control" value="" />
+                </div>
+                <div class="col-4">
+                    <label for="name_dep">ชื่อแผนก :</label>
+                    <input type="text" name="name_dep" id="name_dep" class="form-control" value="" />
+                </div>
+                <div class="col-4 mt-3">
+                    <input type="submit" name="submit"  class="btn btn-primary" value="บันทึกข้อมูล" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
