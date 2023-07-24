@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-5.2.3/css/bootstrap.min.css">
+    <title>แสดงข้อมูลนักเรียน</title>
 </head>
 <body>
+    <div class="container">
+ <!-- ส่วนหัว -->
+ <div><?php include('header.html') ?></div>
 
+ <!-- ส่วนเนื้อหา -->
+ <div style="height: 75vh;">
+           
 <?php
  include_once('db.php');
  $sql1 = "SELECT  s.id_stu, s.fname_stu, s.lname_stu, d.name_dep, t.fname_teach, t.lname_teach
@@ -40,5 +47,9 @@
 
 ?>
     <a href="add.html">เพิ่มข้อมูล</a>
+</div>
+     <!-- ส่วนท้าย -->
+     <div><?php include('footer.html') ?></div>
+</div>
     </body>
 </html>

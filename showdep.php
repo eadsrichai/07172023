@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap-5.2.3/css/bootstrap.min.css">
     <title>แสดงข้อมูลแผนก</title>
 </head>
 <body>
+ <!-- ส่วนหัว -->
+ <div><?php include('header.html') ?></div>
 
 <?php
  include_once('db.php');
@@ -31,5 +34,7 @@
 
 ?>
     <a href="adddep.html">เพิ่มข้อมูล</a>
+     <!-- ส่วนท้าย -->
+     <div><?php include('footer.html') ?></div>
     </body>
 </html>
