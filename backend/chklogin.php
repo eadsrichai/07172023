@@ -16,6 +16,8 @@ $sql = "SELECT  acc_username, acc_password
  if ($result->num_rows > 0) {
      while($row = $result->fetch_assoc()) {
         echo "username and password ถูกต้อง";
+        header( "location: showstudent.php" );
+        exit(0);
      }
 }else {
     echo "username and password ไม่ถูกต้อง";
