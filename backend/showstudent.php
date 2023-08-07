@@ -8,6 +8,9 @@
 </head>
 <body>
     <div class="container">
+    <div class="mt-3 fs-1 bg bg-primary text-white text-center">
+    <p>ระบบฐานข้อมูลนักเรียน</p>
+    </div>
     <?php
     include_once('../db.php');
     $sql = "SELECT  s.id_stu, s.gender_stu,s.fname_stu, s.lname_stu, s.tel_stu, s.email_stu, d.name_dep, t.fname_teach, t.lname_teach
@@ -31,6 +34,8 @@
             <td>อีเมล์</td>
             <td>ชื่อแผนก</td>
             <td>ชื่อครูที่ปรึกษา</td>
+            <td cols='2'>Action</td>
+            <td></td>
         </tr>
         <?php
         while($row = $result->fetch_assoc()) {  ?>
@@ -43,15 +48,21 @@
                 <td><?php echo $row['email_stu']?></td>
                 <td><?php echo $row['name_dep']?></td>
                 <td><?php echo $row['fname_teach']?></td>
+                <td><input type="button" class="btn btn-sm btn-outline-warning" value="Edit" /></td>
+                <td><input type="button" class="btn btn-sm btn-outline-danger" value="Delete" /></td>
             </tr>
+        
+        
     <?php }
+    
     } else {
         echo "0 results";
     }
     echo "</table>";
-    
+   
     $conn->close();
     ?>
+     <input type="button" class="btn btn-sm btn-outline-primary" value="เพิ่มข้อมูล" />
     </div>
     </body>
 </html>
