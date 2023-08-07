@@ -62,7 +62,7 @@
    
     $conn->close();
     ?>
-     <input type="button" class="btn btn-sm btn-outline-primary" value="เพิ่มข้อมูล" />
+     <a href="add.html" class="btn btn-sm btn-outline-primary">เพิ่มข้อมูล</a>
     </div>
     </body>
 </html>
