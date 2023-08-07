@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2023 at 10:41 AM
+-- Generation Time: Aug 07, 2023 at 11:09 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `account`
+--
+
+CREATE TABLE `account` (
+  `acc_id` int(11) NOT NULL,
+  `acc_username` varchar(50) NOT NULL,
+  `acc_password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`acc_id`, `acc_username`, `acc_password`) VALUES
+(1, 'admin', '123456');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `dep`
 --
 
@@ -40,8 +59,8 @@ INSERT INTO `dep` (`id_dep`, `name_dep`) VALUES
 ('01', 'ช่างยนต์'),
 ('02', 'ช่างกลโรงงาน'),
 ('03', 'ช่างไฟฟ้า'),
-('08', 'คอมพิวเตอร์ธุรกิจ'),
-('09', 'เทคโนโลยีสารสนเทศ');
+('04', 'อิเลคทรอนิกส์'),
+('08', 'คอมพิวเตอร์ธุรกิจ');
 
 -- --------------------------------------------------------
 
@@ -65,10 +84,8 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id_stu`, `gender_stu`, `fname_stu`, `lname_stu`, `tel_stu`, `email_stu`, `id_dep`, `id_teach`) VALUES
-('65209010001', 'นางสาว', 'กีรดา', 'สัจจารักษ์', '123456789', 'abc@gmail.com', '01', '001'),
-('65209010002', 'นาย', 'ณนธพร', 'สุขวิชัย', '987654321', 'xyz@hotmail.com', '02', '002'),
-('65209010003', 'นาย', 'ธรณ์เทพ', 'สโมสร', '123789654', 'alo@gmail.com', '08', '001'),
-('65209010006', 'นางสาว', 'ธาราทิพย์', 'บัวจันทร์', '9999999', 'wutkmutt@hotmail.com', '09', '002');
+('65209010001', 'นาย', 'กีรดา', 'สัจจารักษ์', '987654321', 'aaa@gmail.com', '08', '001'),
+('65209010002', 'นาย', 'ธรณ์เทพ', 'สัจจารักษ์', '987654321', 'aaa@gmail.com', '01', '002');
 
 -- --------------------------------------------------------
 
@@ -88,11 +105,18 @@ CREATE TABLE `teacher` (
 
 INSERT INTO `teacher` (`id_teach`, `fname_teach`, `lname_teach`) VALUES
 ('001', 'วุฒิวงศ์', 'เอียดศรีชาย'),
-('002', 'ลักษมี', 'เขาทอง');
+('002', 'ลักษมี', 'เขาทอง'),
+('003', 'สมพร', 'โมกษะรัตน์');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`acc_id`);
 
 --
 -- Indexes for table `dep`
@@ -104,13 +128,36 @@ ALTER TABLE `dep`
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
-  ADD PRIMARY KEY (`id_stu`);
+  ADD PRIMARY KEY (`id_stu`),
+  ADD KEY `id_dep` (`id_dep`),
+  ADD KEY `student_ibfk_2` (`id_teach`);
 
 --
 -- Indexes for table `teacher`
 --
 ALTER TABLE `teacher`
   ADD PRIMARY KEY (`id_teach`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `account`
+--
+ALTER TABLE `account`
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `student`
+--
+ALTER TABLE `student`
+  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`id_dep`) REFERENCES `dep` (`id_dep`),
+  ADD CONSTRAINT `student_ibfk_2` FOREIGN KEY (`id_teach`) REFERENCES `teacher` (`id_teach`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
