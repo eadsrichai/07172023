@@ -11,19 +11,30 @@
     <?php
     include_once('../db.php');
     $sql = "SELECT  * FROM  student";
-
     $result = $conn->query($sql);
-
-    echo "<table>";
-    if ($result->num_rows > 0) {
-        echo "<tr><td>รหัส</td><td>ชื่อ</td><td>นามสกุล</td></tr>";
-        while($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" .$row['id_stu']. "</td>";
-            echo "<td>" .$row['fname_stu']. "</td>";
-            echo "<td>" .$row['lname_stu']. "</td>";
-            echo "</tr>";
-    }
+    ?>
+    <table  class="table">
+    <?php
+    if ($result->num_rows > 0) {  ?>
+        <tr>
+            <td>รหัส</td>
+            <td>คำนำหน้า</td>
+            <td>ชื่อ</td>
+            <td>นามสกุล</td>
+            <td>เบอร์โทร</td>
+            <td>อีเมล์</td>
+        </tr>
+        <?php
+        while($row = $result->fetch_assoc()) {  ?>
+            <tr>
+                <td><?php echo $row['id_stu'] ?></td>
+                <td><?php echo $row['gender_stu']?></td>
+                <td><?php echo $row['fname_stu']?></td>
+                <td><?php echo $row['lname_stu']?></td>
+                <td><?php echo $row['tel_stu']?></td>
+                <td><?php echo $row['email_stu']?></td>
+            </tr>
+    <?php }
     } else {
         echo "0 results";
     }
