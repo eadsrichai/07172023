@@ -40,7 +40,8 @@
         <?php
         while($row = $result->fetch_assoc()) {  ?>
             <tr>
-                <td><?php echo $row['id_stu'] ?></td>
+                <?php $id_stu = $row['id_stu']; ?>
+                <td><?php echo $id_stu; ?></td>
                 <td><?php echo $row['gender_stu']?></td>
                 <td><?php echo $row['fname_stu']?></td>
                 <td><?php echo $row['lname_stu']?></td>
@@ -48,8 +49,8 @@
                 <td><?php echo $row['email_stu']?></td>
                 <td><?php echo $row['name_dep']?></td>
                 <td><?php echo $row['fname_teach']?></td>
-                <td><input type="button" class="btn btn-sm btn-outline-warning" value="Edit" /></td>
-                <td><input type="button" class="btn btn-sm btn-outline-danger" value="Delete" /></td>
+                <td><a class="btn btn-sm btn-outline-warning" href="edit.php?id_stu=<?php echo $id_stu;?>">Edit</a></td>
+                <td><a class="btn btn-sm btn-outline-danger" href="del.php?id_stu=<?php echo $id_stu;?>">Delete</a></td>
             </tr>
         
         
