@@ -15,12 +15,17 @@ $sql = "SELECT  acc_username, acc_password
 
  if ($result->num_rows > 0) {
      while($row = $result->fetch_assoc()) {
+        session_start();
+        $_SESSION["username"] = $u;
+        $_SESSION["password"] = $p;
+
         echo "username and password ถูกต้อง";
         header( "location: showstudent.php" );
         exit(0);
      }
 }else {
-    echo "username and password ไม่ถูกต้อง";
+        header( "location: index.php" );
+        exit(0);
 }
 
 ?>

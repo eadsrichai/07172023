@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+if(isset($_SESSION['username']) && $_SESSION['username'] != null){
+
+
     // นำเข้าการเชื่อมต่อฐานข้อมูล
     include_once('../db.php');
     // คำสั่ง sql สำหรับการเพิ่มข้อมูล
@@ -25,4 +29,10 @@
     //  ย้ายตำแหน่งในการแสดงผลไปที่ show.php และออกจากคำสั่งทั้งหมด  exit(0)
    header( "location: showstudent.php" );
    exit(0);
+
+
+}else {
+    header( "location: index.php" );
+    exit(0);
+}
 ?>

@@ -1,3 +1,7 @@
+<?php  
+    session_start();
+    if(isset($_SESSION['username']) && $_SESSION['username'] != null){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,6 +68,15 @@
     $conn->close();
     ?>
      <a href="add.html" class="btn btn-sm btn-outline-primary">เพิ่มข้อมูล</a>
+     <a href="delsession.php" class="btn btn-sm btn-outline-secconday">Logout</a>
     </div>
     </body>
 </html>
+
+
+<?php  }else {
+    
+    header( "location: index.php" );
+        exit(0);
+
+} ?>
