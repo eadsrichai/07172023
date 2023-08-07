@@ -10,7 +10,13 @@
     <div class="container">
     <?php
     include_once('../db.php');
-    $sql = "SELECT  * FROM  student";
+    $sql = "SELECT  s.id_stu, s.gender_stu,s.fname_stu, s.lname_stu, s.tel_stu, s.email_stu, d.name_dep, t.fname_teach, t.lname_teach
+            FROM  student  s
+            LEFT JOIN  dep  d
+            ON  s.id_dep = d.id_dep
+            LEFT JOIN  teacher t
+            ON  s.id_teach = t.id_teach";
+            
     $result = $conn->query($sql);
     ?>
     <table  class="table">
@@ -23,6 +29,8 @@
             <td>นามสกุล</td>
             <td>เบอร์โทร</td>
             <td>อีเมล์</td>
+            <td>ชื่อแผนก</td>
+            <td>ชื่อครูที่ปรึกษา</td>
         </tr>
         <?php
         while($row = $result->fetch_assoc()) {  ?>
@@ -33,6 +41,8 @@
                 <td><?php echo $row['lname_stu']?></td>
                 <td><?php echo $row['tel_stu']?></td>
                 <td><?php echo $row['email_stu']?></td>
+                <td><?php echo $row['name_dep']?></td>
+                <td><?php echo $row['fname_teach']?></td>
             </tr>
     <?php }
     } else {
